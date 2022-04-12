@@ -1,7 +1,4 @@
 <template>
-  <!-- <div class="h-20 p-2 w-3/4 border-2 border-green-500 rounded">
-        result
-    </div> -->
   <div class="py-7 flex flex-wrap justify-center items-center">
     <v-row
       class="md:w-3/4 mx-15 border-2 border-green-500 rounded"
@@ -38,8 +35,6 @@
 </template>
 
 <script>
-// import { getAuth } from "firebase/auth";
-// import { getDatabase, ref, remove} from "firebase/database";
 import {mapActions} from 'vuex'
 export default {
   name: "HistoryResult",
