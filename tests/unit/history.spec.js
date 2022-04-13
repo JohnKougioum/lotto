@@ -1,30 +1,38 @@
 import HistoryResult from '@/components/HistoryResult'
-import {mount,createLocalVue,} from '@vue/test-utils'
+import {shallowMount,createLocalVue,} from '@vue/test-utils'
 import Vuetify from 'vuetify';
 import Vue from 'vue';
 import Vuex from 'vuex'
+// import storeModule from '../../src/store/index'
 
+
+const localVue = createLocalVue()
+
+localVue.use(Vuex)
 
 Vue.use(Vuetify).use(Vuex)
 
 describe('HistoryResult.vue' ,()=>{
-    const localVue = createLocalVue()
+
     let vuetify
     let actions
+    let tempStore
 
     beforeEach(() => {
       vuetify = new Vuetify(),
       actions = {
+        state:{},
         deleteBetFromHistory: jest.fn()
       }
     })
     
-    const tempStore = new Vuex.Store({
+    tempStore = new Vuex.Store({
+      state:{},
       actions
     })
 
   it('first test',()=>{
-    const wrapper = mount(HistoryResult,{
+    const wrapper = shallowMount(HistoryResult,{
         localVue,
         vuetify,
         propsData:{
@@ -39,15 +47,15 @@ describe('HistoryResult.vue' ,()=>{
             }
         }
     })
-    expect(wrapper.text()).toContain(1)
+    expect(wrapper.text()).toContain(2022)
   })
     
 
   it('delete action test', ()=>{
-    const wrapper = mount(HistoryResult,{
+    const wrapper = shallowMount(HistoryResult,{
       localVue,
-      vuetify,
       tempStore,
+      vuetify,
       propsData:{
         historyData: {
             key: '-N-NyABhXQTChGXZhB7U',
@@ -58,11 +66,10 @@ describe('HistoryResult.vue' ,()=>{
                 timestamp: "2022-4-11 17:18:2" 
             }
         }
-    }
+      }
     })
-
     wrapper.find('img').trigger('click')
     
-    expect(tempStore.actions.deleteBetFromHistory).toHaveBeenCalledTimes(1)
+    expect(actions.deleteBetFromHistory).toHaveBeenCalled()
   })
 })

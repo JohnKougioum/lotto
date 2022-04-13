@@ -1,9 +1,9 @@
 {
   "name": "project-lotto",
   "jest": {
-      "transform": {
-        ".*\\.(js)$": "babel-jest"
-      }
+    "transform": {
+      ".*\\.(js)$": "babel-jest"
+    }
   },
   "version": "0.1.0",
   "private": true,
@@ -50,7 +50,9 @@
     "vuetify-loader": "^1.7.0"
   },
   "babel": {
-    "presets": ["@babel/preset-env"]
+    "presets": [
+      "@babel/preset-env"
+    ]
   },
   "eslintConfig": {
     "root": true,

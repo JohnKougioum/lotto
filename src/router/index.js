@@ -1,10 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '../views/Login.vue'
-import Register from '../views/Register.vue'
-import Home from '../views/Home.vue'
-import Draw from '../views/Draw.vue'
-import History from '../views/History.vue'
 import store from '../store/'
 import { getAuth,onAuthStateChanged } from "firebase/auth";
 
@@ -16,22 +11,25 @@ const routes = [
     path: '/login',
     name: 'Login',
     alias: '/',
-    component: Login,
+    component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
+
   },
   {
     path: '/register',
     name: 'Register',
-    component: Register,
+    component: () => import(/* webpackChunkName: "register" */ '../views/Register.vue')
   },
   {
     path: '/Home',
     name: 'Home',
-    component: Home
+    // component: Home
+    component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
   },
   {
     path: '/Draw',
     name: 'Draw',
-    component: Draw,
+    // component: Draw,
+    component: () => import(/* webpackChunkName: "draw" */ '../views/Draw.vue'),
     beforeEnter: (to,from,next)=>{
       const auth = getAuth();
       const user = auth.currentUser;
@@ -44,9 +42,10 @@ const routes = [
     },
   },
   {
-    path: '/History',
+    path: '/history',
     name: 'History',
-    component: History
+    component: () => import(/* webpackChunkName: "history" */ '../views/History.vue'),
+
   }
 ]
 
