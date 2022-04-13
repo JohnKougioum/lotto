@@ -1,6 +1,6 @@
 <template>
   <div class="md:flex flex-row md:m-20">
-    <div class="md:flex md:w-1/3 md:justify-center flex-wrap">
+    <div class="flex md:w-1/3 justify-center flex-wrap">
         <RandomBall 
         v-for="(randomNumber,index) in this.randomBallsList"
         :key="index"
@@ -11,8 +11,9 @@
         />
     </div>
     <div :class="winning ? 'winbet__animation' : ''" class="opacity-0 md:flex items-center bg-yellow-300 rounded text-lg h-20 justify-center md:w-1/3">!!! Winning Bet !!!</div>
-    <div class="md:flex flex-col md:w-1/3 md:justify-center flex-wrap">
-        <div class="flex md:mb-10 justify-center">
+    <div class="flex flex-col md:w-1/3 justify-center flex-wrap">
+        <h1 class="text-lg pb-4">Your Bet!</h1>
+        <div class="flex md:mb-10 justify-center flex-wrap">
             <RandomBall
             v-for="(pickedNumber,index) in this.getPickedNumbers"
             :key="index"

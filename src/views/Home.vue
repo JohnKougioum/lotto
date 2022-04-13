@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="md:flex flex-row md:m-20">
+    <div class="md:flex md:flex-row flex-col md:m-20">
       <div class="md:flex justify-between">
         <div class=" p-3 md:w-1/3">
         <h1 class="pb-2 text-xl">Pick 5 numbers</h1>
-          <div class="justify-center md:flex flex-wrap">
+          <div class="justify-center flex-row flex flex-wrap ">
             <Ball
             :key="numberedBalls.number"
             v-for="(numberedBalls, index) in initialNumbers"
@@ -13,9 +13,9 @@
           />
           </div>
         </div>
-        <div class="relative md:flex md:w-1/3 flex-col">
-          <h1 class="text-left pb-2 text-xl">Your numbers</h1>
-          <div class="p-4 flex flex-wrap flex-col justify-evenly">
+        <div class="relative flex justify-center items-center md:w-1/3 flex-col">
+          <h1 class="sm:text-center md:text-left pb-2 text-xl">Your numbers</h1>
+          <div class="p-4 flex flex-wrap sm:flex-row md:flex-col justify-evenly">
             <Ball
               :key="pickedBall.number"
               v-for="(pickedBall, index) in getPickedNumbers"

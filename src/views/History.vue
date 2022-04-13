@@ -1,6 +1,6 @@
 <template>
   <div class="md:flex h-screen flex-col items-center">
-      <div class="asd flex flex-col justify-start w-1/2 md:w-1/3 ">
+      <div class="flex justify-center flex-col md:justify-start w-full md:w-1/3 ">
         
         <div class="md:pt-14">
             <div class="">

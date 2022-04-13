@@ -24,7 +24,7 @@ describe('TheModal.vue' ,()=>{
 
   it('first test',()=>{
     const wrapper = mount(TheModal,{store})
-    expect(wrapper.text()).toContain(0)
+    expect(wrapper.text()).toContain('2022-4-11 17:18:2')
   })
     
 })

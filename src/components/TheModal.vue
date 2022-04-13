@@ -1,7 +1,7 @@
 <template>
   <div class="fixed z-0 left-0 top-0 w-full h-full bg-black bg-opacity-40">
       <div class="absolute flex flex-col top-2/4 left-2/4 transform -translate-x-1/2 -translate-y-1/2
-       bg-white w-2/3 h-2/3 p-5 md:h-2/4">
+       bg-white w-5/6 md:w-2/3 h-2/3 p-5 md:h-2/4">
             <div class="relative h-full w-full">
                 <div class="h-2/3 flex justify-evenly flex-col">
                     <div>
@@ -11,9 +11,9 @@
                         You won {{this.getFinalResults.prize}}€
                     </div>
                 </div>
-                <div class="h-1/3 w-full flex justify-between items-center px-10 relative">
-                    <button @click="gotoHome" class="bottom-1/2 h-1/3 px-2 py-1 bg-indigo-600 rounded text-white hover:bg-indigo-700 duration-75">Go Back</button>
-                    <button @click="saveHistory" class=" bottom-1/2 h-1/3 px-2 py-1 bg-green-600 rounded text-white hover:bg-green-700 duration-75">Save to History</button>
+                <div class="h-1/3 w-full flex justify-between items-center md:px-10 relative">
+                    <button @click="gotoHome" class="bottom-1/2 h-1/3 md:px-2 py-1 bg-indigo-600 rounded text-white hover:bg-indigo-700 duration-75">Go Back</button>
+                    <button @click="saveHistory" class=" bottom-1/2 h-1/3 md:px-2 py-1 text-sm md:text-lg bg-green-600 rounded text-white hover:bg-green-700 duration-75">Save to History</button>
                 </div>
             </div>
        </div>
