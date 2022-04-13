@@ -35,8 +35,9 @@ const routes = [
       else{
         if (user){ 
           next({name: 'Home'})}
-        else next({name:'Login'})
-      }
+          else next({name:'Login'})
+        }
+        store.commit('set_isLoading') 
     },
   },
   {
@@ -72,7 +73,7 @@ router.beforeEach((to, from, next)=>{
 })
 
 router.beforeEach((to, from, next) => {
-  // If this isn't an initial page load.
+  if (to.name=="Home") next();
   if (to.name) {
     // Start the route progress bar.
     store.commit('set_isLoading') 

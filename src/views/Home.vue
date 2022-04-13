@@ -23,7 +23,7 @@
               :numberedBall="pickedBall"
             />
             </div>
-          <div class="absolute pl-6 -bottom-1/4 inline-flex">
+          <div class="absolute md:pl-6 -bottom-1/4 inline-flex">
             <button
               class="
                 py-1
