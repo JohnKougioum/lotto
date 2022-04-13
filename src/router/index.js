@@ -22,13 +22,11 @@ const routes = [
   {
     path: '/Home',
     name: 'Home',
-    // component: Home
     component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
   },
   {
     path: '/Draw',
     name: 'Draw',
-    // component: Draw,
     component: () => import(/* webpackChunkName: "draw" */ '../views/Draw.vue'),
     beforeEnter: (to,from,next)=>{
       const auth = getAuth();
@@ -56,21 +54,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next)=>{
-  // if (to.name == "Login" || to.name == "Register"){
-  //   next();
-  // }else{
-  //   const auth = getAuth();
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       // User is signed in, see docs for a list of available properties
-  //       // https://firebase.google.com/docs/reference/js/firebase.User
-  //       // const uid = user.uid;
-  //       next();
-  //     } else {
-  //       next({name: "Login",})
-  //     }
-  //   });
-  // }
+
   const auth = getAuth();
   const user = auth.currentUser;
   if (to.name == "Login" || to.name == "Register"){
@@ -87,5 +71,18 @@ router.beforeEach((to, from, next)=>{
   }
 })
 
+router.beforeEach((to, from, next) => {
+  // If this isn't an initial page load.
+  if (to.name) {
+    // Start the route progress bar.
+    store.commit('set_isLoading') 
+  }
+  next()
+})
+
+router.afterEach(() => {
+  store.commit('set_isLoading') 
+  
+})
 
 export default router

@@ -1,5 +1,8 @@
 <template>
   <div>
+    <v-app class="max-h-4 overflow-x-hidden">
+      <v-progress-linear :active="checkIfLoading" :indeterminate="checkIfLoading"></v-progress-linear>
+    </v-app>
     <nav class="p-5 bg-white shadow md:items-center md:justify-between">
       <div>
         <ul class="md:flex flex-col md:flex-row justify-end md:items-center">
@@ -53,14 +56,21 @@
         </ul>
       </div>
     </nav>
+    
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions,mapGetters } from 'vuex'
 import { getAuth, signOut } from "firebase/auth";
 export default {
   name: "TheHeader",
+  computed:{
+    ...mapGetters(['getIsLoading']),
+    checkIfLoading(){
+      return this.getIsLoading
+    }
+  },
   methods: {
     async logout() {
       //Empty Picked number array from store
