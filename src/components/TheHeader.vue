@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-app class="max-h-4 overflow-x-hidden">
+    <!-- <v-app class="max-h-4 overflow-x-hidden">
       <v-progress-linear :active="checkIfLoading" :indeterminate="checkIfLoading"></v-progress-linear>
-    </v-app>
+    </v-app> -->
     <nav class="p-5 bg-white shadow md:items-center md:justify-between">
       <div>
         <ul class="md:flex flex-col md:flex-row justify-end md:items-center">

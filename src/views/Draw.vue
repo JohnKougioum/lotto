@@ -1,6 +1,6 @@
 <template>
   <div class="md:flex flex-row md:m-20">
-    <div class="flex md:w-1/3 justify-center flex-wrap">
+    <div class="flex md:w-1/3 justify-center items-center flex-wrap">
         <RandomBall 
         v-for="(randomNumber,index) in this.randomBallsList"
         :key="index"

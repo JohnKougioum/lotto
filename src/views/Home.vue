@@ -13,17 +13,19 @@
           />
           </div>
         </div>
-        <div class="relative flex justify-center items-center md:w-1/3 flex-col">
+        <div class="relative flex items-center justify-between md:w-1/3 flex-col">
           <h1 class="sm:text-center md:text-left pb-2 text-xl">Your numbers</h1>
-          <div class="p-4 flex flex-wrap sm:flex-row md:flex-col justify-evenly">
-            <Ball
-              :key="pickedBall.number"
-              v-for="(pickedBall, index) in getPickedNumbers"
-              :index="index"
-              :numberedBall="pickedBall"
-            />
+          <div class="flex justify-center">
+            <div class="p-4 flex flex-wrap sm:flex-row md:flex-col justify-evenly">
+              <Ball
+                :key="pickedBall.number"
+                v-for="(pickedBall, index) in getPickedNumbers"
+                :index="index"
+                :numberedBall="pickedBall"
+              />
+              </div>
             </div>
-          <div class="absolute md:pl-6 -bottom-1/4 inline-flex">
+          <div class="inline-flex">
             <button
               class="
                 py-1

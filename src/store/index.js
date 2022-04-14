@@ -9,7 +9,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    isLoading: false,
+    // isLoading: true,
     userEmail:'',
     pickedNumbers: [],
     drawPhase: false,
@@ -19,9 +19,9 @@ export default new Vuex.Store({
     registerFail: ''
   },
   mutations: {
-    set_isLoading(state){
-      state.isLoading = !state.isLoading
-    },
+    // set_isLoading(state){
+    //   state.isLoading = !state.isLoading
+    // },
     set_User_Email(state, userEmail){
       state.userEmail = userEmail;
     },
@@ -146,7 +146,7 @@ export default new Vuex.Store({
   modules: {
   },
   getters:{
-    getIsLoading:(state)=> state.isLoading,
+    // getIsLoading:(state)=> state.isLoading,
     getPickedNumbers: (state)=> state.pickedNumbers,
     getDrawPhase: (state)=>state.drawPhase,
     getBetCount:(state)=>state.betCount,

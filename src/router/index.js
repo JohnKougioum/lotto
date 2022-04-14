@@ -37,7 +37,6 @@ const routes = [
           next({name: 'Home'})}
           else next({name:'Login'})
         }
-        store.commit('set_isLoading') 
     },
   },
   {
@@ -72,18 +71,19 @@ router.beforeEach((to, from, next)=>{
   }
 })
 
-router.beforeEach((to, from, next) => {
-  if (to.name=="Home") next();
-  if (to.name) {
-    // Start the route progress bar.
-    store.commit('set_isLoading') 
-  }
-  next()
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.name=="Home") next();
+//   if (to.name) {
+//     // Start the route progress bar.
+      // store.commit('set_isLoading') 
 
-router.afterEach(() => {
-  store.commit('set_isLoading') 
+//   }
+//   next()
+// })
+
+// router.afterEach(() => {
+//   store.commit('set_isLoading') 
   
-})
+// })
 
 export default router
