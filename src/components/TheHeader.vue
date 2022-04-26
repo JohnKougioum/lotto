@@ -56,21 +56,20 @@
         </ul>
       </div>
     </nav>
-    
   </div>
 </template>
 
 <script>
-import { mapActions,mapGetters } from 'vuex'
+import { mapActions } from "vuex";
 import { getAuth, signOut } from "firebase/auth";
 export default {
   name: "TheHeader",
-  computed:{
-    ...mapGetters(['getIsLoading']),
-    checkIfLoading(){
-      return this.getIsLoading
-    }
-  },
+  // computed:{
+  //   ...mapGetters(['getIsLoading']),
+  //   checkIfLoading(){
+  //     return this.getIsLoading
+  //   }
+  // },
   methods: {
     async logout() {
       //Empty Picked number array from store
@@ -78,13 +77,13 @@ export default {
       const auth = getAuth();
       signOut(auth)
         .then(() => {
-          this.$router.push({name:"Login"})
+          this.$router.push({ name: "Login" });
         })
         .catch((error) => {
           console.log(error);
         });
     },
-    ...mapActions(["emptyPickedNumber"])
+    ...mapActions(["emptyPickedNumber"]),
   },
 };
 </script>

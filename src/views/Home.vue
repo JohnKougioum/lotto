@@ -2,29 +2,33 @@
   <div>
     <div class="md:flex md:flex-row flex-col md:m-20">
       <div class="md:flex justify-between">
-        <div class=" p-3 md:w-1/3">
-        <h1 class="pb-2 text-xl">Pick 5 numbers</h1>
-          <div class="justify-center flex-row flex flex-wrap ">
+        <div class="p-3 md:w-1/3">
+          <h1 class="pb-2 text-xl">Pick 5 numbers</h1>
+          <div class="justify-center flex-row flex flex-wrap">
             <Ball
-            :key="numberedBalls.number"
-            v-for="(numberedBalls, index) in initialNumbers"
-            :index="index"
-            :numberedBall="numberedBalls"
-          />
+              :key="numberedBalls.number"
+              v-for="(numberedBalls, index) in initialNumbers"
+              :index="index"
+              :numberedBall="numberedBalls"
+            />
           </div>
         </div>
-        <div class="relative flex items-center justify-between md:w-1/3 flex-col">
+        <div
+          class="relative flex items-center justify-between md:w-1/3 flex-col"
+        >
           <h1 class="sm:text-center md:text-left pb-2 text-xl">Your numbers</h1>
           <div class="flex justify-center">
-            <div class="p-4 flex flex-wrap sm:flex-row md:flex-col justify-evenly">
+            <div
+              class="p-4 flex flex-wrap sm:flex-row md:flex-col justify-evenly"
+            >
               <Ball
                 :key="pickedBall.number"
                 v-for="(pickedBall, index) in getPickedNumbers"
                 :index="index"
                 :numberedBall="pickedBall"
               />
-              </div>
             </div>
+          </div>
           <div class="inline-flex">
             <button
               class="
@@ -35,7 +39,6 @@
                 hover:bg-green-600
                 duration-75
                 rounded-sm
-                
               "
               type="submit"
               :disabled="this.getPickedNumbers.length !== 5"
@@ -51,7 +54,7 @@
 </template>
 
 <script>
-import { mapActions,mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import Ball from "../components/Ball.vue";
 export default {
   name: "Home",
@@ -217,15 +220,14 @@ export default {
       ],
     };
   },
-  methods:{
-    submitDraw(){
-      let isDrawing = true
-      this.setDrawPhase({isDrawing})
-      this.$router.push({name: 'Draw'})
-      
+  methods: {
+    submitDraw() {
+      let isDrawing = true;
+      this.setDrawPhase({ isDrawing });
+      this.$router.push({ name: "Draw" });
     },
-    ...mapActions(['setDrawPhase'])
-  }
+    ...mapActions(["setDrawPhase"]),
+  },
 };
 </script>
 

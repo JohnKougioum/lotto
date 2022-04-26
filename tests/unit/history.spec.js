@@ -70,6 +70,7 @@ describe('HistoryResult.vue' ,()=>{
     })
     wrapper.find('img').trigger('click')
     
-    expect(actions.deleteBetFromHistory).toHaveBeenCalled()
+    expect(wrapper.vm.deleteAction()).toHaveBeenCalled()
+
   })
 })

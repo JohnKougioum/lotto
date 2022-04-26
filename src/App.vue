@@ -6,18 +6,19 @@
 </template>
 
 <script>
-import TheHeader from './components/TheHeader.vue'
+import TheHeader from "./components/TheHeader.vue";
 export default {
-  name: 'App',
-  components:{
-    TheHeader
+  name: "App",
+  components: {
+    TheHeader,
   },
-  computed:{
-    showHeader(){
-      if(this.$route.name == 'Login' || this.$route.name == 'Register') return false
-      else return true
-    }
-  }
+  computed: {
+    showHeader() {
+      if (this.$route.name == "Login" || this.$route.name == "Register")
+        return false;
+      else return true;
+    },
+  },
 };
 </script>
 

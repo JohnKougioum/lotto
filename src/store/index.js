@@ -16,7 +16,8 @@ export default new Vuex.Store({
     betCount: 0,
     finalResults: [],
     betHistory: [],
-    registerFail: ''
+    registerFail: '',
+    contentLoading: true
   },
   mutations: {
     // set_isLoading(state){
@@ -54,6 +55,9 @@ export default new Vuex.Store({
     },
     set_Register_Fail(state,flag){
       state.registerFail = flag
+    },
+    set_Content_Loading(state, flag){
+      state.contentLoading = flag
     }
   },
   actions: {
@@ -128,6 +132,8 @@ export default new Vuex.Store({
         });
         history.slice().reverse()
       commit('set_Bet_History', history)
+      const flag = false
+      commit('set_Content_Loading', flag)
     },
     deleteBetFromHistory({commit},{key}){
 
@@ -152,6 +158,7 @@ export default new Vuex.Store({
     getBetCount:(state)=>state.betCount,
     getFinalResults:(state)=>state.finalResults,
     getBetHistory:(state) => state.betHistory,
-    getRegisterFail:(state) => state.registerFail
+    getRegisterFail:(state) => state.registerFail,
+    getContentLoading:(state) => state.contentLoading
   }
 })
